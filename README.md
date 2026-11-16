@@ -1,6 +1,6 @@
 # Prompt Engineering Portfolio — Wendy Rizza V. Calma
 
-My MCO2 AI portfolio for **PDC10 Conversational AI and Prompt Engineering** (BSIT 4A).
+My MCO2 AI portfolio for **PDC60 Conversational AI and Prompt Engineering** (BSIT 4A).
 It documents my prompt experiments, the Jayjay chatbot my team built, two class
 prompting challenges, an AI agent experiment, and what I learned from testing them.
 
@@ -13,18 +13,15 @@ Plain HTML, CSS and JavaScript. No build step, no frameworks.
 | `index.html` | Home and featured work |
 | `about.html` | About me and learning objectives |
 | `prompts.html` | Before-and-after prompt comparisons |
-| `projects.html` | Jayjay, Broken Bot Labyrinth, Lost Context Archive, study agent, personalization |
+| `projects.html` | Overview of all five projects |
+| `jayjay.html`, `labyrinth.html`, `context-archive.html`, `study-agent.html`, `personalization.html` | One page per project |
 | `evaluation.html` | Testing methods, criteria, weaknesses and fixes |
 | `reflection.html` | Reflection |
 | `references.html` | Sources and AI tools used |
+| `404.html` | Page shown for a broken link |
 
 Shared files are in `assets/` (`css/style.css`, `js/main.js`, and screenshots in `img/`).
 All links use relative paths, so the site works at any GitHub Pages address.
-
-## Before publishing
-
-Search the files for `CONTENT NEEDED` and replace each marker with the real
-information, or delete it.
 
 ## Deploy on GitHub Pages (step by step)
 

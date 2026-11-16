@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Broken Bot Labyrinth · Wendy Calma</title>
+<meta name="description" content="The Broken Bot Labyrinth: repairing a campus help bot prompt by prompt against gate criteria.">
+<meta name="author" content="Wendy Rizza V. Calma">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23A64D70'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' text-anchor='middle' fill='%23FFF8FA'%3EW%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-name">Wendy Calma</span>
+      <span class="brand-sub">Prompt Engineering Portfolio</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="prompts.html">Prompt Engineering</a></li>
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="evaluation.html">Evaluation</a></li>
+        <li><a href="reflection.html">Reflection</a></li>
+        <li><a href="references.html">References</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<div class="wrap crumb"><a href="projects.html">Projects</a> <span aria-hidden="true">/</span> Broken Bot Labyrinth</div>
+<section class="section project project-page" id="labyrinth" aria-labelledby="lab-title">
+  <div class="wrap">
+    <div class="project-head">
+      <p class="eyebrow">Prompt engineering challenge</p>
+      <h1 id="lab-title">The Broken Bot Labyrinth</h1>
+      <div class="project-meta">
+        <span><b>Team codeX:</b> Wendy Calma, Harman Magar, Justine Esguerra</span>
+        <span><b>Topic:</b> Conversational UX and dialogue design</span>
+        <span><b>Result:</b> All 6 levels cleared, Final Boss defeated</span>
+      </div>
+    </div>
+
+    <div class="split split--wide-right">
+      <div class="stack">
+        <p>We had to repair a broken campus help bot. Each level gave a scenario and a list of gate criteria, which were the expected results, and ChatGPT tested our "repair prompt" against them. We started with a 1,200-token budget, so long prompts cost us.</p>
+        <p>A failed gate told us exactly which criterion we missed, so we changed only that part.</p>
+      </div>
+      <div class="stack">
+        <h2>Prompt ledger</h2>
+        <p class="small muted">Each bar is the estimated prompt size in tokens.</p>
+        <div class="ledger" role="table" aria-label="Prompt ledger">
+          <div class="ledger-row" role="row"><b role="cell">P1</b><span class="bar" role="cell"><span class="rev" style="width:18%"></span></span><b role="cell">26</b><span class="status status--fail" role="cell">Revise</span></div>
+          <div class="ledger-row" role="row"><b role="cell">P2</b><span class="bar" role="cell"><span style="width:24%"></span></span><b role="cell">34</b><span class="status status--pass" role="cell">Level 1</span></div>
+          <div class="ledger-row" role="row"><b role="cell">P3</b><span class="bar" role="cell"><span class="rev" style="width:47%"></span></span><b role="cell">67</b><span class="status status--fail" role="cell">Revise</span></div>
+          <div class="ledger-row" role="row"><b role="cell">P4</b><span class="bar" role="cell"><span style="width:46%"></span></span><b role="cell">66</b><span class="status status--pass" role="cell">Level 2</span></div>
+          <div class="ledger-row" role="row"><b role="cell">P5</b><span class="bar" role="cell"><span style="width:100%"></span></span><b role="cell">143</b><span class="status status--pass" role="cell">Level 3</span></div>
+          <div class="ledger-row" role="row"><b role="cell">P6</b><span class="bar" role="cell"><span style="width:54%"></span></span><b role="cell">77</b><span class="status status--pass" role="cell">Level 4</span></div>
+          <div class="ledger-row" role="row"><b role="cell">P7</b><span class="bar" role="cell"><span style="width:66%"></span></span><b role="cell">94</b><span class="status status--pass" role="cell">Level 5</span></div>
+          <div class="ledger-row" role="row"><b role="cell">P8</b><span class="bar" role="cell"><span style="width:37%"></span></span><b role="cell">53</b><span class="status status--pass" role="cell">Level 6</span></div>
+          <div class="ledger-row" role="row"><b role="cell">P9</b><span class="bar" role="cell"><span class="rev" style="width:58%"></span></span><b role="cell">83</b><span class="status status--fail" role="cell">Revise</span></div>
+          <div class="ledger-row" role="row"><b role="cell">P10</b><span class="bar" role="cell"><span style="width:64%"></span></span><b role="cell">91</b><span class="status status--pass" role="cell">Boss</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stack-lg" style="margin-top:48px">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Level</th><th scope="col">The broken behavior</th><th scope="col">What our repair made the bot do</th></tr></thead>
+          <tbody>
+            <tr><td>1 · Vague Entrance</td><td>Asked for student number and password</td><td>Ask one question: error message, page down for everyone, or login trouble?</td></tr>
+            <tr><td>2 · Slot Chamber</td><td>Wi-Fi report with no routing</td><td>One device → troubleshoot; many users → outage report; unclear → one follow-up; six turns max</td></tr>
+            <tr><td>3 · Branching Hallway</td><td>No enrollment workflow</td><td>Five states from OPEN to CLOSE/ESCALATE, without inventing requirements</td></tr>
+            <tr><td>4 · Confirmation Trap</td><td>"Cancel my application" (which one?)</td><td>Clarify it's the scholarship, show the exact request, offer Yes / No / Contact Financial Aid</td></tr>
+            <tr><td>5 · Endless Loop</td><td>"the computer one" → "I don't know"</td><td>Rephrase → offer BSIT or BSCS → let them skip → admissions counselor</td></tr>
+            <tr><td>6 · Trust Vault</td><td>Shared password and medical info</td><td>Refuse the password, say to change it, never repeat it, and offer Disability Services</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="compare">
+        <div class="stack">
+          <span class="label label--before">Level 1, attempt 1 (failed)</span>
+          <pre class="prompt">REPAIR PROMPT: "I'm sorry you're having trouble accessing MyClass. Are you seeing a specific error message, or is the page not loading for you?"</pre>
+          <p class="small"><span class="status status--fail">✗</span> Didn't separate forgotten credentials or an outage affecting others.</p>
+        </div>
+        <div class="stack">
+          <span class="label label--after">Level 1, attempt 2 (cleared)</span>
+          <pre class="prompt">REPAIR PROMPT: "I'm sorry you're having trouble accessing MyClass. To help me assist you, are you seeing an error message, is the page not loading for everyone, or are you having trouble with your login credentials?"</pre>
+          <p class="small"><span class="status status--pass">✓</span> All five gate criteria met.</p>
+        </div>
+      </div>
+
+      <div class="split split--wide-left">
+        <div class="stack">
+          <h2>Final Boss: one prompt for every situation</h2>
+          <pre class="prompt">CCS Help Assistant Behavioral Directive:
+1. INTENT &amp; CONTEXT: Triage user queries into credential loss, system errors, or outages by verifying impact scope (individual device vs. multi-user).
+2. WORKFLOW &amp; DECISION: Limit interactions to a strict six-turn limit. Clarify ambiguities immediately; escalate multi-user issues to specialized support without delay. Confirmation: For consequential requests, state exactly what will be submitted and ask for clear Yes/No confirmation.
+3. RECOVERY: If communication fails, execute a four-stage ladder: rephrase, narrow options, take control, and escalate.
+TRUST: Address accessibility barriers without simulating human emotion. For login difficulties, prioritize links to Disability Services and official support channels.</pre>
+        </div>
+        <div class="stack">
+          <p>The Boss ran five hidden tests: vague intent, a scope branch, a shared password, a corrected device and a request to "mark it resolved."</p>
+          <p>Our first attempt passed 9 of 10 checks. It never required confirmation before a consequential submission, so we added the <strong>Confirmation</strong> sentence above. The second attempt passed all 10.</p>
+          <p>What I took from it: a behavior I fixed in Level 4 didn't carry into the master prompt by itself. I had to write it in again.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap page-nav">
+  <a href="jayjay.html"><small>Previous project</small>Jayjay Chatbot</a>
+  <a href="context-archive.html"><small>Next project</small>Lost Context Archive →</a>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Wendy Rizza V. Calma · BSIT 4A · PDC60 Conversational AI and Prompt Engineering</p>
+    <p>MCO2 AI Portfolio · <span id="year">2026</span></p>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

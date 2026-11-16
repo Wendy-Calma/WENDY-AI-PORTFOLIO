@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jayjay Chatbot · Wendy Calma</title>
+<meta name="description" content="Jayjay, the Messenger chatbot my team built for J&J Egg Supply: prompt, guardrails, checks and real Messenger orders.">
+<meta name="author" content="Wendy Rizza V. Calma">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23A64D70'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' text-anchor='middle' fill='%23FFF8FA'%3EW%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-name">Wendy Calma</span>
+      <span class="brand-sub">Prompt Engineering Portfolio</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="prompts.html">Prompt Engineering</a></li>
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="evaluation.html">Evaluation</a></li>
+        <li><a href="reflection.html">Reflection</a></li>
+        <li><a href="references.html">References</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<div class="wrap crumb"><a href="projects.html">Projects</a> <span aria-hidden="true">/</span> Jayjay Chatbot</div>
+<section class="section project project-page" id="jayjay" aria-labelledby="jj-title">
+  <div class="wrap">
+    <div class="project-head">
+      <p class="eyebrow">Chatbot development</p>
+      <h1 id="jj-title">Jayjay, the J&amp;J Egg Supply chatbot</h1>
+      <div class="project-meta">
+        <span><b>Team EggDroids:</b> Wendy Calma, Justine Esguerra, Harman Magar</span>
+        <span><b>Built with:</b> Python (Flask), Google Gemini, Google Sheets, Messenger, Render</span>
+        <span><b>Status:</b> Live on the J&amp;J Facebook Page</span>
+        <span><a href="https://github.com/Wendy-Calma/J-J-Egg-Supply-AI-Chatbot" rel="noopener">View the code on GitHub</a></span>
+      </div>
+    </div>
+
+    <div class="split split--wide-left">
+      <div class="stack">
+        <p class="lede">J&amp;J Egg Supply sells eggs by the tray and rice by the sack in Angeles City. Their customers already message the Facebook Page, so we built Jayjay to answer those messages: prices, stock, delivery, payment and orders.</p>
+        <p>The hard part wasn't getting the AI to talk. It was keeping it from inventing a price, a discount or a delivery promise for a real business. Most of our work went into rules, checks and hand-offs to staff.</p>
+        <p>Justine handled the backend and the Messenger integration. Harman built the AI, LLM and ordering logic.</p>
+      </div>
+      <div class="stack">
+        <h2>My part: project manager, BA and QA</h2>
+        <ul class="plain">
+          <li>Worked with J&amp;J's owners and confirmed all 9 knowledge categories</li>
+          <li>Got Meta Business Suite access to J&amp;J's Facebook Page</li>
+          <li>Wrote the SRS, and set up the GitHub repo and starter code</li>
+          <li>Kept the knowledge base current, like updating Medium eggs to ₱238 per tray</li>
+          <li>Tested orders on Messenger in English and Taglish, and reported bugs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stack-lg" style="margin-top:48px">
+      <div class="split split--title">
+        <h2>How Jayjay handles a message</h2>
+        <ol class="plain">
+          <li>A customer messages the Page, and Meta sends it to our Flask backend on Render.</li>
+          <li>The backend rebuilds the prompt with the current facts: prices and stock from the Google Sheet, and delivery, payment and promos from JSON files. It also tells the model to reply in English, Tagalog or Taglish.</li>
+          <li>Gemini 3.5 Flash Lite writes the reply. If it's busy, Gemini 3.6 Flash takes over.</li>
+          <li>The backend blocks any ₱ amount that isn't a real price or a valid order line. For orders, it calculates the total itself.</li>
+          <li>The order saves only after the customer confirms the summary, and it waits for staff to confirm. Rice delivery outside Angeles City, complaints and haggling go straight to staff.</li>
+        </ol>
+      </div>
+
+      <div class="figures figures--two">
+        <figure>
+          <a href="assets/img/jayjay-messenger-english-order.webp"><img src="assets/img/jayjay-messenger-english-order.webp" width="1102" height="867" alt="Messenger chat in English: a customer orders 14 trays of small eggs for pickup and pays cash. When the customer only types 'cash', Jayjay asks again for a name and contact number, then shows a summary of ₱3,220.00 minus a ₱50.00 discount for a total of ₱3,170.00." loading="lazy"></a>
+          <figcaption>English order. When the customer typed only "cash," Jayjay asked for the name and number again, because an order only saves with details the customer typed. 14 × ₱230 − ₱50 = ₱3,170.</figcaption>
+        </figure>
+        <figure>
+          <a href="assets/img/jayjay-messenger-taglish-order.webp"><img src="assets/img/jayjay-messenger-taglish-order.webp" width="1096" height="761" alt="Messenger chat in Taglish: a customer orders 12 trays of medium eggs for delivery outside Angeles City. Jayjay replies in Taglish, adds ₱5 per tray for delivery, shows a total of ₱2,866.00, and says the order is not final until staff confirm." loading="lazy"></a>
+          <figcaption>Taglish order with delivery outside Angeles City. 12 × ₱238 + ₱60 − ₱50 = ₱2,866. Jayjay says "Hindi pa po final ang order."</figcaption>
+        </figure>
+      </div>
+
+      <div class="split split--even">
+        <div class="stack">
+          <h2>An earlier version overclaimed</h2>
+          <p>Our older web chat ended an order with "Inihahanda na po namin ang inyong order" ("we're preparing your order"), as if it were final. On November 14 we added the rule "Never say the order is confirmed, final, or ready," and now Jayjay says the order is waiting for staff.</p>
+          <p class="small muted">Jayjay takes order requests. It doesn't collect payment, and staff confirm every order by Messenger or phone.</p>
+        </div>
+        <figure>
+          <a href="assets/img/jayjay-webchat-2.webp"><img src="assets/img/jayjay-webchat-2.webp" width="654" height="559" alt="Older Jayjay web chat: an order summary for 5 trays of small eggs at ₱1,150.00 for pickup, the customer replies 'yep', and the bot says thank you and that the order is being prepared." loading="lazy"></a>
+          <figcaption>The older web chat treated the order as already accepted.</figcaption>
+        </figure>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <caption>The AI models we tried</caption>
+          <thead><tr><th scope="col">When</th><th scope="col">Model</th><th scope="col">Why we moved on</th></tr></thead>
+          <tbody>
+            <tr><td>Sept 10</td><td>OpenAI</td><td>Paid</td></tr>
+            <tr><td>Sept 21</td><td>NVIDIA NIM</td><td>Performance wasn't good enough</td></tr>
+            <tr><td>Nov 8</td><td>Local Ollama (Qwen 2.5)</td><td>Needed a computer running all the time, and its Tagalog was weaker</td></tr>
+            <tr><td>Nov 13</td><td>Gemini 3.5 Flash Lite</td><td>What we use now: better Tagalog and Taglish, and a higher free daily limit</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap page-nav">
+  <a href="projects.html"><small>Back</small>All projects</a>
+  <a href="labyrinth.html"><small>Next project</small>Broken Bot Labyrinth →</a>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Wendy Rizza V. Calma · BSIT 4A · PDC60 Conversational AI and Prompt Engineering</p>
+    <p>MCO2 AI Portfolio · <span id="year">2026</span></p>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

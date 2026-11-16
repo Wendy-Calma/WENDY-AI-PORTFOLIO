@@ -25,7 +25,7 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="prompts.html">Prompt Engineering</a></li>
+        <li><a href="prompts.html" aria-current="page">Prompt Engineering</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="evaluation.html">Evaluation</a></li>
         <li><a href="reflection.html">Reflection</a></li>
@@ -41,7 +41,7 @@
     <div class="stack">
       <p class="eyebrow">Prompt Engineering</p>
       <h1>Same task, better prompt</h1>
-      <p class="lede">Each pair below uses the same task twice. The only thing that changed was how I asked. All outputs are quoted or summarized from the actual conversations.</p>
+      <p class="lede">Each pair uses the same task twice. The only thing I changed was how I asked. I quote or summarize every output from the actual conversations.</p>
     </div>
     <ul class="toc" aria-label="On this page" style="align-self:end">
       <li><a href="#vague">Vague vs specific</a></li>
@@ -53,7 +53,6 @@
   </div>
 </header>
 
-<!-- 1. Vague vs specific -->
 <section class="section" id="vague" aria-labelledby="vague-h">
   <div class="wrap stack-lg">
     <div class="stack">
@@ -79,13 +78,13 @@
       </div>
     </div>
     <div class="compare-change">
-      <h4>What changed and why it worked</h4>
+      <p class="small"><strong>Expected:</strong> a direct recommendation for my situation. <strong>Actual:</strong> the first prompt got a question back; the second got the recommendation.</p>
+      <h3>What changed and why it worked</h3>
       <p>The second prompt gives the <strong>context</strong> (small university, static pages), the <strong>options</strong> to compare and the <strong>criteria</strong> to judge them by. The first prompt left all three for the AI to guess. Asking back was actually the right move for a vague question, but it cost an extra turn.</p>
     </div>
   </div>
 </section>
 
-<!-- 2. Plain vs structured -->
 <section class="section" id="incident" aria-labelledby="incident-h">
   <div class="wrap stack-lg">
     <div class="split split--title">
@@ -93,7 +92,10 @@
         <p class="eyebrow">Pair 2 · ChatGPT</p>
         <h2 id="incident-h">Summarizing an outage report</h2>
       </div>
-      <p>Both prompts summarize the same incident report: the university LMS went down on August 12 after a new version was deployed. The report says a connection leak is only <em>suspected</em>, an audit is still running, and no prevention plan has been approved.</p>
+      <div class="stack">
+        <p>Both prompts summarize the same incident report: the university LMS went down on August 12 after a new version was deployed. The report says a connection leak is only <em>suspected</em>, an audit is still running, and no prevention plan has been approved.</p>
+        <p class="small"><strong>Expected:</strong> a summary a manager can act on that only states what the report supports.</p>
+      </div>
     </div>
     <div class="compare">
       <div class="stack">
@@ -130,14 +132,13 @@
   </div>
 </section>
 
-<!-- 3. Anatomy -->
 <section class="section" id="interview" aria-labelledby="interview-h">
   <div class="wrap split split--wide-right">
     <div class="stack">
       <p class="eyebrow">Anatomy · ChatGPT</p>
       <h2 id="interview-h">My personalization interview prompt</h2>
       <p>The most structured prompt I wrote. Instead of describing myself, I made ChatGPT interview me and then write its own Custom Instructions and memory policy.</p>
-      <p class="small muted">It asked 10 questions, one at a time, ended each with "Why this question matters," and pushed back on some answers. It only wrote the final personalization after the last question, like the stop rule said. The results are on the <a href="projects.html#personalization">Projects</a> page.</p>
+      <p class="small muted"><strong>Expected:</strong> one question at a time, then the final personalization. <strong>Actual:</strong> 10 questions, each ending with "Why this question matters," some push-back on my answers, and the personalization only after the last one. I tested the result on the <a href="personalization.html">Projects</a> page.</p>
     </div>
     <div class="table-wrap">
       <table>
@@ -155,7 +156,6 @@
   </div>
 </section>
 
-<!-- 4. Jayjay prompt -->
 <section class="section" id="jayjay-prompt" aria-labelledby="jj-h">
   <div class="wrap stack-lg">
     <div class="split split--title">
@@ -216,7 +216,6 @@ Never say the order is confirmed, final, or ready; say our staff will confirm it
   </div>
 </section>
 
-<!-- 5. Constraint tests -->
 <section class="section" id="constraints" aria-labelledby="con-h">
   <div class="wrap split split--wide-left">
     <div class="stack">
@@ -228,13 +227,13 @@ Never say the order is confirmed, final, or ready; say our staff will confirm it
           <tbody>
             <tr><td>"Explain machine learning using an analogy that a 12-year-old could understand. Limit your explanation to 150 words."</td><td>125 words; a puppy learning to find a tennis ball</td><td class="status status--pass">Met</td></tr>
             <tr><td>"Rewrite the following message professionally: 'hey prof i cant attend tomorrow because i got something important to do.'"</td><td>Formal and polite, but added an apology I never wrote</td><td class="status status--partial">Partly</td></tr>
-            <tr><td>"Summarize the provided text into three key points. Include only information found in the original text and do not introduce additional information."</td><td>Exactly 3 points, all traceable to the abstract; "reputable" became "top"</td><td class="status status--partial">Nearly</td></tr>
+            <tr><td>"Summarize the provided text into three key points. Include only information found in the original text and do not introduce additional information."</td><td>Exactly 3 points, all traceable to the abstract; "reputable" became "top"</td><td class="status status--partial">Partly</td></tr>
             <tr><td>"Create a table comparing supervised learning, unsupervised learning, and reinforcement learning. Include a definition, typical use, and one example for each."</td><td>3 rows × 3 columns, all filled</td><td class="status status--pass">Met</td></tr>
           </tbody>
         </table>
       </div>
     </div>
-    <p class="margin-note" style="align-self:center"><b>Small but real</b>"Reputable" turning into "top" looks harmless. In a research summary it changes the claim, and I only caught it by reading the summary against the original.</p>
+    <p class="margin-note" style="align-self:center">"Reputable" turning into "top" looks harmless, but in a research summary it changes the claim.</p>
   </div>
 </section>
 
@@ -245,7 +244,7 @@ Never say the order is confirmed, final, or ready; say our staff will confirm it
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <p>Wendy Rizza V. Calma · BSIT 4A · PDC10 Conversational AI and Prompt Engineering</p>
+    <p>Wendy Rizza V. Calma · BSIT 4A · PDC60 Conversational AI and Prompt Engineering</p>
     <p>MCO2 AI Portfolio · <span id="year">2026</span></p>
   </div>
 </footer>

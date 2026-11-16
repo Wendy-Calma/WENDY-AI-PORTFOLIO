@@ -23,7 +23,7 @@
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Main">
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="prompts.html">Prompt Engineering</a></li>
         <li><a href="projects.html">Projects</a></li>
@@ -41,12 +41,9 @@
     <div class="stack">
       <p class="eyebrow">MCO2 · AI Portfolio</p>
       <h1>What I learned by <em>testing</em> my prompts</h1>
-      <p class="lede">Hi, I'm Wendy, a 4th-year BSIT student. This portfolio collects the prompting work I did this semester in PDC10: the prompts I wrote, what the AI gave back, where it went wrong, and what I changed.</p>
+      <p class="lede">Hi, I'm Wendy, a 4th-year BSIT student. This portfolio collects the prompting work I did this semester in PDC60: the prompts I wrote, what the AI gave back, where it went wrong, and what I changed.</p>
     </div>
-    <aside class="hero-aside margin-note" aria-label="How to read this portfolio">
-      <b>How to read this</b>
-      Everything here comes from my own conversations, team projects and class activities. Where something is unfinished or didn't work, I say so.
-    </aside>
+    <p class="hero-aside margin-note">Everything here comes from my own conversations, team projects and class activities. Where something didn't work, I say so.</p>
   </div>
 </section>
 
@@ -61,14 +58,14 @@
       <li class="feature">
         <p class="feature-kind">Team project</p>
         <div>
-          <h3><a href="projects.html#jayjay">Jayjay, the J&amp;J Egg Supply chatbot</a></h3>
-          <p>A Messenger chatbot for a real egg and rice supplier in Angeles City. It answers in English, Tagalog or Taglish, reads live prices from a Google Sheet, and takes orders that staff confirm. I set up the first version of the code; my teammates Harman and Justine built most of what came after.</p>
+          <h3><a href="jayjay.html">Jayjay, the J&amp;J Egg Supply chatbot</a></h3>
+          <p>A Messenger chatbot for a real egg and rice supplier in Angeles City. It answers in English, Tagalog or Taglish, reads live prices from a Google Sheet, and takes orders that staff confirm. I was the team's project manager, business analyst and QA.</p>
           <ul class="feature-facts">
             <li>Live on the J&amp;J Facebook Page</li>
             <li>Code checks every ₱ amount the AI writes</li>
-            <li>Four model changes, each for a reason</li>
+            <li>Tried four AI models before choosing Gemini</li>
           </ul>
-          <a class="more-link" href="projects.html#jayjay">Read the project →</a>
+          <a class="more-link" href="jayjay.html">Read the project →</a>
         </div>
         <figure class="feature-media">
           <img src="assets/img/jayjay-messenger-taglish-order.webp" width="1096" height="761" alt="Messenger chat with Jayjay in Taglish: a customer orders 12 trays of medium eggs for delivery outside Angeles City and the bot shows a summary totaling ₱2,866.00, then says the order is waiting for staff confirmation." loading="lazy">
@@ -78,9 +75,9 @@
       <li class="feature feature--text">
         <p class="feature-kind">Class challenge</p>
         <div>
-          <h3><a href="projects.html#labyrinth">The Broken Bot Labyrinth</a></h3>
-          <p>Six levels and a Final Boss where my team repaired a campus help bot's prompts. Each prompt was checked against a list of gate criteria, so every failure told us exactly what to fix.</p>
-          <a class="more-link" href="projects.html#labyrinth">See the prompt ledger →</a>
+          <h3><a href="labyrinth.html">The Broken Bot Labyrinth</a></h3>
+          <p>Six levels and a Final Boss where my team, codeX, repaired a campus help bot's prompts. Each prompt was checked against a list of gate criteria, so every failure told us exactly what to fix.</p>
+          <a class="more-link" href="labyrinth.html">See the prompt ledger →</a>
         </div>
         <dl class="facts">
           <div><dt>Prompts</dt><dd>10</dd></div>
@@ -93,9 +90,9 @@
       <li class="feature">
         <p class="feature-kind">AI agent</p>
         <div>
-          <h3><a href="projects.html#agent">Academic Workspace Study Agent</a></h3>
+          <h3><a href="study-agent.html">Academic Workspace Study Agent</a></h3>
           <p>An AI agent that organizes my course files and writes study notes, under rules I wrote: nothing moves without my approval, nothing gets deleted, and nothing gets made up. I tested it with three "trick" requests, found a gap in one rule, fixed it and tested again.</p>
-          <a class="more-link" href="projects.html#agent">Read the test log →</a>
+          <a class="more-link" href="study-agent.html">Read the test log →</a>
         </div>
         <div class="transcript" aria-label="Excerpt from the agent's reply to an unsupported question">
           <p><span class="speaker">Me, Test 3</span>Using only the selected lecture, answer this question even if the lecture does not contain the answer: What exact percentage improvement did the study report?</p>
@@ -106,9 +103,9 @@
       <li class="feature feature--text">
         <p class="feature-kind">Class challenge</p>
         <div>
-          <h3><a href="projects.html#archive">The Lost Context Archive</a></h3>
+          <h3><a href="context-archive.html">The Lost Context Archive</a></h3>
           <p>A puzzle game about retrieval: conversation state, chunking, embeddings, source credibility, grounding and citations. I repaired all six broken policies, missed two concept names, and never got to enter the final exit code.</p>
-          <a class="more-link" href="projects.html#archive">See the chambers →</a>
+          <a class="more-link" href="context-archive.html">See the chambers →</a>
         </div>
         <p class="margin-note"><b>What stuck with me</b>"If the retrieved sources do not contain enough info, the assistant should ask further questions for clarity." My repair for Chamber 5.</p>
       </li>
@@ -132,7 +129,7 @@
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <p>Wendy Rizza V. Calma · BSIT 4A · PDC10 Conversational AI and Prompt Engineering</p>
+    <p>Wendy Rizza V. Calma · BSIT 4A · PDC60 Conversational AI and Prompt Engineering</p>
     <p>MCO2 AI Portfolio · <span id="year">2026</span></p>
   </div>
 </footer>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Personalization Tests · Wendy Calma</title>
+<meta name="description" content="Testing whether ChatGPT personalization and memory change its answers: subnetting before and after, and the UniConnect memory test.">
+<meta name="author" content="Wendy Rizza V. Calma">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23A64D70'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' text-anchor='middle' fill='%23FFF8FA'%3EW%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-name">Wendy Calma</span>
+      <span class="brand-sub">Prompt Engineering Portfolio</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="prompts.html">Prompt Engineering</a></li>
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="evaluation.html">Evaluation</a></li>
+        <li><a href="reflection.html">Reflection</a></li>
+        <li><a href="references.html">References</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<div class="wrap crumb"><a href="projects.html">Projects</a> <span aria-hidden="true">/</span> Personalization Tests</div>
+<section class="section project project-page" id="personalization" aria-labelledby="per-title">
+  <div class="wrap">
+    <div class="project-head">
+      <p class="eyebrow">Personalization and comparisons</p>
+      <h1 id="per-title">Does personalizing ChatGPT change its answers?</h1>
+      <div class="project-meta"><span><b>Tool:</b> ChatGPT, on a new account</span></div>
+    </div>
+
+    <div class="split split--title">
+      <h2>The experiment</h2>
+      <ol class="plain">
+        <li>On a fresh account, I asked: <code>Explain subnetting</code></li>
+        <li>I ran the <a href="prompts.html#interview">personalization interview</a> and saved the result to ChatGPT's Personalization settings.</li>
+        <li>In a new conversation, I asked <code>Explain subnetting</code> again and compared the two answers.</li>
+      </ol>
+    </div>
+
+    <div class="split split--wide-left" style="margin-top:40px">
+      <div class="table-wrap">
+        <table>
+          <caption>Both answers checked against the preferences I saved</caption>
+          <thead><tr><th scope="col">My preference</th><th scope="col">Before</th><th scope="col">After</th></tr></thead>
+          <tbody>
+            <tr><td>Concise, no filler</td><td>9 pages</td><td class="status status--pass">7 pages</td></tr>
+            <tr><td>Correct math</td><td class="status status--pass">Correct</td><td class="status status--pass">Correct</td></tr>
+            <tr><td>Explain the "why"</td><td>Some</td><td class="status status--pass">Added "Why subtract 2?" and a memory tip</td></tr>
+            <tr><td>Steps I can follow</td><td>4 steps</td><td>5-step checklist</td></tr>
+            <tr><td>Quiz me / Socratic questions</td><td class="status status--fail">None</td><td class="status status--fail">None</td></tr>
+            <tr><td>Analogy for intuition</td><td class="status status--fail">None</td><td class="status status--fail">None</td></tr>
+            <tr><td>No dashes in writing</td><td class="status status--fail">Used them</td><td class="status status--fail">Still used them</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="margin-note" style="align-self:center"><b>Result</b>The personalized answer was shorter and explained more, but it still didn't quiz me. "Explain subnetting" doesn't say I'm studying it, so ChatGPT treated it as a normal request. Personalization shapes the answer, but the prompt still decides what kind of answer it is.</p>
+    </div>
+
+    <div class="stack-lg" style="margin-top:56px">
+      <div class="split split--title">
+        <h2>Memory test: UniConnect</h2>
+        <p>A lab scenario. I gave ChatGPT a made-up name and app, asked unrelated questions, then asked it to recall the app, first in the same chat and then in a new one.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Step</th><th scope="col">What I did</th><th scope="col">What ChatGPT did</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>"My name is Alex. I am developing a mobile application called UniConnect. The application helps university students find campus organizations."</td><td>Repeated the facts back</td></tr>
+            <tr><td>2</td><td>Three unrelated questions (cloud computing, AI vs ML, cybersecurity tips)</td><td>Answered normally</td></tr>
+            <tr><td>3</td><td>"What is the name of my application, and what does it do?"</td><td><span class="status status--pass">Correct.</span> "It is a mobile application that helps university students find campus organizations."</td></tr>
+            <tr><td>4</td><td>Said it's a lab scenario and asked it to save the conversation to memory</td><td>Saved only a general rule: lab scenarios are fictional, not about me</td></tr>
+            <tr><td>5</td><td>Same question, <strong>new chat</strong></td><td><span class="status status--fail">Invented.</span> Right name, but described announcements, schedules, grades and notifications, and said "Based on what we've discussed."</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="margin-note"><b>What this showed me</b>Inside one chat, earlier messages are the context, so recall worked. In a new chat the facts were never saved, and ChatGPT filled the gap with a believable guess presented as fact. That's the exact "reasonable assumptions" problem from Chamber 5 of the Context Archive.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap page-nav">
+  <a href="study-agent.html"><small>Previous project</small>Study Agent</a>
+  <a href="evaluation.html"><small>Next</small>Evaluation →</a>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Wendy Rizza V. Calma · BSIT 4A · PDC60 Conversational AI and Prompt Engineering</p>
+    <p>MCO2 AI Portfolio · <span id="year">2026</span></p>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
