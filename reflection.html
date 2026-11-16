@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reflection · Wendy Calma</title>
+<meta name="description" content="What I learned about prompt engineering this semester, what I misunderstood at first, and how my view of AI changed.">
+<meta name="author" content="Wendy Rizza V. Calma">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23A64D70'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' text-anchor='middle' fill='%23FFF8FA'%3EW%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-name">Wendy Calma</span>
+      <span class="brand-sub">Prompt Engineering Portfolio</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="prompts.html">Prompt Engineering</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="evaluation.html">Evaluation</a></li>
+        <li><a href="reflection.html">Reflection</a></li>
+        <li><a href="references.html">References</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<header class="page-head">
+  <div class="wrap stack">
+    <p class="eyebrow">Reflection</p>
+    <h1>What changed in how I use AI</h1>
+  </div>
+</header>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <article class="essay">
+      <h2>What I learned</h2>
+      <p>The biggest lesson is that a prompt is a set of instructions, and instructions can be tested. When I wrote "Which one is better?" I got a question back. When I gave the context, the options and the criteria, I got a usable answer on the first try. The same thing happened with the incident summary: naming the audience, the fields and the word limit turned a general summary into something a manager could act on.</p>
+      <p>I also learned that the most important part of a prompt is often what to do when the information isn't there. "If evidence is missing, write 'not established'" did more to stop a made-up root cause than any instruction about accuracy.</p>
+
+      <h2>What I misunderstood at first</h2>
+      <p><strong>I thought a good prompt was enough to stop hallucinations.</strong> Jayjay's prompt says "Never invent prices," but the code still checks every ₱ amount and calculates every total itself. A prompt lowers the risk. It doesn't remove it.</p>
+      <p><strong>I thought personalization would change everything.</strong> After a long interview, ChatGPT's subnetting answer was shorter and clearer, but it still didn't quiz me, because my two-word prompt didn't say I was studying.</p>
+      <p><strong>I thought the AI remembered what I told it.</strong> In the UniConnect test it remembered within one chat, but in a new chat it confidently described features I never mentioned.</p>
+      <p><strong>I thought RAG always meant a vector database.</strong> The Context Archive and our own chatbot showed me it's about what evidence reaches the model and how the model is told to use it. Jayjay's knowledge base is small enough that we send all of it every time.</p>
+
+      <blockquote class="pullquote">Rules in a prompt reduce mistakes. Checks outside the prompt catch the ones that slip through.</blockquote>
+
+      <h2>What I improved</h2>
+      <p>I started revising only the part that failed instead of rewriting whole prompts. In the Labyrinth, every failed gate pointed to one missing behavior, and fixing just that cleared the level. With my study agent, I found a conflict in one rule, approved a one-sentence fix and ran the same test again to make sure it worked.</p>
+      <p>I also got better at checking outputs myself. I counted words, recalculated totals and read summaries side by side with the original. That's how I caught "reputable" becoming "top," and an apology appearing in a message I never apologized in.</p>
+
+      <h2>How my view of AI changed</h2>
+      <p>I used to read AI answers as finished. Now I read them as drafts that need checking, especially anything with a number, a date, a source or a promise. The AI sounds just as confident when it's guessing as when it's right, which is exactly why the guardrails, the "not established" rules and the human hand-offs matter.</p>
+      <p>Building Jayjay for a real business made this concrete. A wrong price or a promised delivery affects real customers and real owners, so the bot's job isn't to answer everything. Its job is to answer what it knows and pass the rest to a person.</p>
+    </article>
+  </div>
+</section>
+
+<div class="wrap page-nav">
+  <a href="evaluation.html"><small>Back</small>Evaluation</a>
+  <a href="references.html"><small>Next</small>References →</a>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Wendy Rizza V. Calma · BSIT 4A · PDC10 Conversational AI and Prompt Engineering</p>
+    <p>MCO2 AI Portfolio · <span id="year">2026</span></p>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

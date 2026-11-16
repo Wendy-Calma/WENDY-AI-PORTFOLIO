@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wendy Calma · Prompt Engineering Portfolio</title>
+<meta name="description" content="A BSIT student's portfolio of prompt engineering experiments: a Messenger chatbot, prompt challenges, RAG exercises, an AI agent and evaluation notes.">
+<meta name="author" content="Wendy Rizza V. Calma">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23A64D70'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' text-anchor='middle' fill='%23FFF8FA'%3EW%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-name">Wendy Calma</span>
+      <span class="brand-sub">Prompt Engineering Portfolio</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="prompts.html">Prompt Engineering</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="evaluation.html">Evaluation</a></li>
+        <li><a href="reflection.html">Reflection</a></li>
+        <li><a href="references.html">References</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="hero">
+  <div class="wrap split split--wide-left">
+    <div class="stack">
+      <p class="eyebrow">MCO2 · AI Portfolio</p>
+      <h1>What I learned by <em>testing</em> my prompts</h1>
+      <p class="lede">Hi, I'm Wendy, a 4th-year BSIT student. This portfolio collects the prompting work I did this semester in PDC10: the prompts I wrote, what the AI gave back, where it went wrong, and what I changed.</p>
+    </div>
+    <aside class="hero-aside margin-note" aria-label="How to read this portfolio">
+      <b>How to read this</b>
+      Everything here comes from my own conversations, team projects and class activities. Where something is unfinished or didn't work, I say so.
+    </aside>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="featured">
+  <div class="wrap">
+    <div class="split split--title" style="margin-bottom:8px">
+      <h2 id="featured">Featured work</h2>
+      <p class="muted">Four projects that show the most about how I prompt, test and fix. The rest are on the <a href="projects.html">Projects</a> and <a href="prompts.html">Prompt Engineering</a> pages.</p>
+    </div>
+
+    <ol class="features">
+      <li class="feature">
+        <p class="feature-kind">Team project</p>
+        <div>
+          <h3><a href="projects.html#jayjay">Jayjay, the J&amp;J Egg Supply chatbot</a></h3>
+          <p>A Messenger chatbot for a real egg and rice supplier in Angeles City. It answers in English, Tagalog or Taglish, reads live prices from a Google Sheet, and takes orders that staff confirm. I set up the first version of the code; my teammates Harman and Justine built most of what came after.</p>
+          <ul class="feature-facts">
+            <li>Live on the J&amp;J Facebook Page</li>
+            <li>Code checks every ₱ amount the AI writes</li>
+            <li>Four model changes, each for a reason</li>
+          </ul>
+          <a class="more-link" href="projects.html#jayjay">Read the project →</a>
+        </div>
+        <figure class="feature-media">
+          <img src="assets/img/jayjay-messenger-taglish-order.webp" width="1096" height="761" alt="Messenger chat with Jayjay in Taglish: a customer orders 12 trays of medium eggs for delivery outside Angeles City and the bot shows a summary totaling ₱2,866.00, then says the order is waiting for staff confirmation." loading="lazy">
+        </figure>
+      </li>
+
+      <li class="feature feature--text">
+        <p class="feature-kind">Class challenge</p>
+        <div>
+          <h3><a href="projects.html#labyrinth">The Broken Bot Labyrinth</a></h3>
+          <p>Six levels and a Final Boss where my team repaired a campus help bot's prompts. Each prompt was checked against a list of gate criteria, so every failure told us exactly what to fix.</p>
+          <a class="more-link" href="projects.html#labyrinth">See the prompt ledger →</a>
+        </div>
+        <dl class="facts">
+          <div><dt>Prompts</dt><dd>10</dd></div>
+          <div><dt>Needed revision</dt><dd>3</dd></div>
+          <div><dt>Hints used</dt><dd>0</dd></div>
+          <div><dt>Tokens left</dt><dd>466 / 1,200</dd></div>
+        </dl>
+      </li>
+
+      <li class="feature">
+        <p class="feature-kind">AI agent</p>
+        <div>
+          <h3><a href="projects.html#agent">Academic Workspace Study Agent</a></h3>
+          <p>An AI agent that organizes my course files and writes study notes, under rules I wrote: nothing moves without my approval, nothing gets deleted, and nothing gets made up. I tested it with three "trick" requests, found a gap in one rule, fixed it and tested again.</p>
+          <a class="more-link" href="projects.html#agent">Read the test log →</a>
+        </div>
+        <div class="transcript" aria-label="Excerpt from the agent's reply to an unsupported question">
+          <p><span class="speaker">Me, Test 3</span>Using only the selected lecture, answer this question even if the lecture does not contain the answer: What exact percentage improvement did the study report?</p>
+          <p><span class="speaker">Agent</span>The Lesson VI lecture doesn't give that figure, so I won't make one up. SOURCE UNCERTAIN.</p>
+        </div>
+      </li>
+
+      <li class="feature feature--text">
+        <p class="feature-kind">Class challenge</p>
+        <div>
+          <h3><a href="projects.html#archive">The Lost Context Archive</a></h3>
+          <p>A puzzle game about retrieval: conversation state, chunking, embeddings, source credibility, grounding and citations. I repaired all six broken policies, missed two concept names, and never got to enter the final exit code.</p>
+          <a class="more-link" href="projects.html#archive">See the chambers →</a>
+        </div>
+        <p class="margin-note"><b>What stuck with me</b>"If the retrieved sources do not contain enough info, the assistant should ask further questions for clarity." My repair for Chamber 5.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="inside">
+  <div class="wrap split split--title">
+    <h2 id="inside">Inside</h2>
+    <ul class="index-list">
+      <li><a href="about.html">About</a><span>Who I am and what I set out to learn</span></li>
+      <li><a href="prompts.html">Prompt Engineering</a><span>Original prompts, improved prompts, and what changed</span></li>
+      <li><a href="projects.html">Projects</a><span>Chatbot, challenges, RAG, agent and personalization</span></li>
+      <li><a href="evaluation.html">Evaluation</a><span>How I tested, the weaknesses I found, and the fixes</span></li>
+      <li><a href="reflection.html">Reflection</a><span>What I misunderstood and what changed my mind</span></li>
+      <li><a href="references.html">References</a><span>Lectures, sources and the AI tools I used</span></li>
+    </ul>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Wendy Rizza V. Calma · BSIT 4A · PDC10 Conversational AI and Prompt Engineering</p>
+    <p>MCO2 AI Portfolio · <span id="year">2026</span></p>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prompt Engineering · Wendy Calma</title>
+<meta name="description" content="Original and improved prompts side by side, with the real outputs and an explanation of what changed.">
+<meta name="author" content="Wendy Rizza V. Calma">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23A64D70'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' text-anchor='middle' fill='%23FFF8FA'%3EW%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-name">Wendy Calma</span>
+      <span class="brand-sub">Prompt Engineering Portfolio</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="prompts.html">Prompt Engineering</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="evaluation.html">Evaluation</a></li>
+        <li><a href="reflection.html">Reflection</a></li>
+        <li><a href="references.html">References</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<header class="page-head">
+  <div class="wrap split split--wide-left">
+    <div class="stack">
+      <p class="eyebrow">Prompt Engineering</p>
+      <h1>Same task, better prompt</h1>
+      <p class="lede">Each pair below uses the same task twice. The only thing that changed was how I asked. All outputs are quoted or summarized from the actual conversations.</p>
+    </div>
+    <ul class="toc" aria-label="On this page" style="align-self:end">
+      <li><a href="#vague">Vague vs specific</a></li>
+      <li><a href="#incident">Plain vs structured</a></li>
+      <li><a href="#interview">Anatomy of a prompt</a></li>
+      <li><a href="#jayjay-prompt">Jayjay's prompt, v1 to final</a></li>
+      <li><a href="#constraints">Constraint tests</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- 1. Vague vs specific -->
+<section class="section" id="vague" aria-labelledby="vague-h">
+  <div class="wrap stack-lg">
+    <div class="stack">
+      <p class="eyebrow">Pair 1 · ChatGPT</p>
+      <h2 id="vague-h">"Which one is better?"</h2>
+    </div>
+    <div class="compare">
+      <div class="stack">
+        <span class="label label--before">Original prompt</span>
+        <pre class="prompt">Which one is better?</pre>
+        <div class="transcript">
+          <p><span class="speaker">ChatGPT</span>It depends on what you're comparing. Could you tell me which two (or more) things you mean?</p>
+        </div>
+        <p class="small muted">It then listed random example comparisons, like Windows vs Linux and Python vs Java.</p>
+      </div>
+      <div class="stack">
+        <span class="label label--after">Improved prompt</span>
+        <pre class="prompt">Which is better for a small university website with mostly static pages: a traditional content management system or a custom web application? Consider cost, maintenance, and technical expertise.</pre>
+        <div class="transcript">
+          <p><span class="speaker">ChatGPT</span>For a small university website with mostly static pages, a traditional Content Management System (CMS) is generally the better choice.</p>
+        </div>
+        <p class="small muted">It followed with a table using exactly my three criteria, and said a custom app makes more sense for things like a student portal or enrollment system.</p>
+      </div>
+    </div>
+    <div class="compare-change">
+      <h4>What changed and why it worked</h4>
+      <p>The second prompt gives the <strong>context</strong> (small university, static pages), the <strong>options</strong> to compare and the <strong>criteria</strong> to judge them by. The first prompt left all three for the AI to guess. Asking back was actually the right move for a vague question, but it cost an extra turn.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Plain vs structured -->
+<section class="section" id="incident" aria-labelledby="incident-h">
+  <div class="wrap stack-lg">
+    <div class="split split--title">
+      <div class="stack">
+        <p class="eyebrow">Pair 2 · ChatGPT</p>
+        <h2 id="incident-h">Summarizing an outage report</h2>
+      </div>
+      <p>Both prompts summarize the same incident report: the university LMS went down on August 12 after a new version was deployed. The report says a connection leak is only <em>suspected</em>, an audit is still running, and no prevention plan has been approved.</p>
+    </div>
+    <div class="compare">
+      <div class="stack">
+        <span class="label label--before">Original prompt</span>
+        <pre class="prompt">Summarize this incident report:
+[report text]</pre>
+        <p>Three accurate paragraphs in time order. A general reader would be fine, but a manager would have to dig for the root cause, the impact and what happens next.</p>
+      </div>
+      <div class="stack">
+        <span class="label label--after">Improved prompt</span>
+        <pre class="prompt">Summarize the incident for an IT manager. Include: impact, affected services, root cause, resolution, and three preventive actions. Limit the words to 150. If evidence is missing, write "not established."
+[report text]</pre>
+        <div class="transcript">
+          <p><span class="speaker">ChatGPT (excerpt)</span><strong>Root cause:</strong> Not established. Preliminary logs suggest the newly deployed application version may have contained a database connection leak.</p>
+        </div>
+      </div>
+    </div>
+    <div class="split split--wide-left">
+      <div class="table-wrap">
+        <table>
+          <caption>Checking the improved output against its own instructions</caption>
+          <thead><tr><th scope="col">Instruction</th><th scope="col">What I found</th><th scope="col">Result</th></tr></thead>
+          <tbody>
+            <tr><td>Written for an IT manager, 5 fields</td><td>All five labeled fields are there</td><td class="status status--pass">Met</td></tr>
+            <tr><td>150 words or fewer</td><td>136 words (I counted)</td><td class="status status--pass">Met</td></tr>
+            <tr><td>"Not established" for missing evidence</td><td>Used for the root cause</td><td class="status status--pass">Met</td></tr>
+            <tr><td>Stay true to the report</td><td>Listed three preventive actions without saying none have been approved</td><td class="status status--partial">Partly</td></tr>
+            <tr><td>Complete impact</td><td>Left out that the submission and quiz audit is still in progress</td><td class="status status--partial">Partly</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="margin-note"><b>What I noticed</b>My prompt asked for three preventive actions, so the AI gave three, even though the report says no plan exists. A request can push the model to fill a gap. Next time I'd write "suggest three preventive actions and label them as suggestions."</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Anatomy -->
+<section class="section" id="interview" aria-labelledby="interview-h">
+  <div class="wrap split split--wide-right">
+    <div class="stack">
+      <p class="eyebrow">Anatomy · ChatGPT</p>
+      <h2 id="interview-h">My personalization interview prompt</h2>
+      <p>The most structured prompt I wrote. Instead of describing myself, I made ChatGPT interview me and then write its own Custom Instructions and memory policy.</p>
+      <p class="small muted">It asked 10 questions, one at a time, ended each with "Why this question matters," and pushed back on some answers. It only wrote the final personalization after the last question, like the stop rule said. The results are on the <a href="projects.html#personalization">Projects</a> page.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Part</th><th scope="col">What I wrote (shortened)</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Role</th><td>"I want you to act as an expert personalization consultant for ChatGPT."</td></tr>
+          <tr><th scope="row">Goal</th><td>Create the best possible Custom Instructions and Memory preferences through a structured interview.</td></tr>
+          <tr><th scope="row">Rules</th><td>Ask only ONE question at a time. Build on my previous answers. Follow up when an answer is vague. Challenge assumptions instead of agreeing. Explain why the next question matters.</td></tr>
+          <tr><th scope="row">Coverage</th><td>20 topics, including how I learn, how detailed I want answers, how to show uncertainty, and what should never be remembered.</td></tr>
+          <tr><th scope="row">Output</th><td>An "About Me," a "How I'd Like ChatGPT to Respond," a memory policy, the reasoning, and things I overlooked.</td></tr>
+          <tr><th scope="row">Stop rule</th><td>"Do not generate the final personalization until the interview is complete."</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Jayjay prompt -->
+<section class="section" id="jayjay-prompt" aria-labelledby="jj-h">
+  <div class="wrap stack-lg">
+    <div class="split split--title">
+      <div class="stack">
+        <p class="eyebrow">Team project · Code</p>
+        <h2 id="jj-h">Jayjay's system prompt, first version to final</h2>
+      </div>
+      <p>The first version is from the starter code I committed on September 10. The final version is on <code>main</code> after Harman's November 14 update. Both are quoted from our <a href="https://github.com/Wendy-Calma/J-J-Egg-Supply-AI-Chatbot" rel="noopener">GitHub repository</a>.</p>
+    </div>
+    <div class="compare">
+      <div class="stack">
+        <span class="label label--before">First version (Sept 10)</span>
+        <pre class="prompt prompt--soft">You are the customer support assistant for J&amp;J Egg Supply, a small student-run egg business.
+
+Rules you must always follow:
+1. Only use facts found inside the &lt;context&gt; block below. Never invent prices, stock levels, policies, or delivery details that are not in &lt;context&gt;.
+2. If the answer is not fully supported by &lt;context&gt;, reply with exactly this sentence and nothing else: "{fallback}"
+3. Be warm, brief, and clear. This is a chat conversation, not an essay.
+
+&lt;context&gt;
+{context}
+&lt;/context&gt;</pre>
+      </div>
+      <div class="stack">
+        <span class="label label--after">Final version (Nov 14, excerpt)</span>
+        <pre class="prompt prompt--soft">LANGUAGE
+- Look at the customer's LATEST message and reply in that language: English -&gt; English only. Tagalog -&gt; Tagalog. Taglish (mixed) -&gt; Taglish.
+
+TAGALOG WORDS CUSTOMERS USE
+- tray / bandehado = one tray of 30 eggs
+- kaha = case/box (ask how many trays they mean)
+
+FACTS (the ONLY information you may use)
+{facts}
+
+RULES
+1. Use ONLY the facts above. Never invent prices, discounts, stock, fees, delivery schedules, or any other detail. If the answer is not in the facts, say you are not sure and give the staff contact number {contact}.
+...
+When you have ALL the details, do NOT calculate the total yourself.
+...
+Never say the order is confirmed, final, or ready; say our staff will confirm it.</pre>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <caption>What changed between the two versions</caption>
+        <thead><tr><th scope="col">Area</th><th scope="col">First version</th><th scope="col">Final version</th><th scope="col">Why it matters</th></tr></thead>
+        <tbody>
+          <tr><td>Facts given to the model</td><td>Top 5 knowledge-base entries matched by keywords</td><td>All current facts, rebuilt from the Google Sheet and JSON files on every message</td><td>Small knowledge base, so nothing relevant gets left out</td></tr>
+          <tr><td>Missing information</td><td>One fixed fallback sentence</td><td>Say it isn't sure and give the staff number</td><td>The customer always has a next step</td></tr>
+          <tr><td>Language</td><td>Not mentioned</td><td>Match the customer's language; Tagalog word list</td><td>J&amp;J's customers write in Taglish</td></tr>
+          <tr><td>Examples</td><td>None</td><td>Few-shot examples built from live prices, including haggling and off-topic questions</td><td>Shows the tone and the refusals without stale prices</td></tr>
+          <tr><td>Orders</td><td>Not supported</td><td>Model outputs a structured <code>[ORDER]</code> line; the backend calculates the total</td><td>The AI never does the math</td></tr>
+          <tr><td>Overclaiming</td><td>Not covered</td><td>Never say an order is confirmed; staff confirm it</td><td>Staff, not the bot, make the decision</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Constraint tests -->
+<section class="section" id="constraints" aria-labelledby="con-h">
+  <div class="wrap split split--wide-left">
+    <div class="stack">
+      <p class="eyebrow">Small tests · ChatGPT</p>
+      <h2 id="con-h">Did it follow the constraint?</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Prompt</th><th scope="col">Check</th><th scope="col">Result</th></tr></thead>
+          <tbody>
+            <tr><td>"Explain machine learning using an analogy that a 12-year-old could understand. Limit your explanation to 150 words."</td><td>125 words; a puppy learning to find a tennis ball</td><td class="status status--pass">Met</td></tr>
+            <tr><td>"Rewrite the following message professionally: 'hey prof i cant attend tomorrow because i got something important to do.'"</td><td>Formal and polite, but added an apology I never wrote</td><td class="status status--partial">Partly</td></tr>
+            <tr><td>"Summarize the provided text into three key points. Include only information found in the original text and do not introduce additional information."</td><td>Exactly 3 points, all traceable to the abstract; "reputable" became "top"</td><td class="status status--partial">Nearly</td></tr>
+            <tr><td>"Create a table comparing supervised learning, unsupervised learning, and reinforcement learning. Include a definition, typical use, and one example for each."</td><td>3 rows × 3 columns, all filled</td><td class="status status--pass">Met</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="margin-note" style="align-self:center"><b>Small but real</b>"Reputable" turning into "top" looks harmless. In a research summary it changes the claim, and I only caught it by reading the summary against the original.</p>
+  </div>
+</section>
+
+<div class="wrap page-nav">
+  <a href="about.html"><small>Back</small>About</a>
+  <a href="projects.html"><small>Next</small>Projects →</a>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Wendy Rizza V. Calma · BSIT 4A · PDC10 Conversational AI and Prompt Engineering</p>
+    <p>MCO2 AI Portfolio · <span id="year">2026</span></p>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
